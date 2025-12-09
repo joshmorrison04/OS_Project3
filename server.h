@@ -1,3 +1,6 @@
+#ifndef SERVER_H
+#define SERVER_H
+
 /* System Header Files */
 #include <stdio.h>
 #include <stdlib.h>
@@ -28,11 +31,15 @@
 #define MAXBUFF   2096
 #define BACKLOG 2 
 
+/* global MOTD */
+extern const char *server_MOTD;
 
-// prototypes
+/* prototypes */
 
-int get_server_socket();
+int get_server_socket(void);
 int start_server(int serv_socket, int backlog);
 int accept_client(int serv_sock);
 void sigintHandler(int sig_num);
 void *client_receive(void *ptr);
+
+#endif
